@@ -4,7 +4,20 @@
 
 @layer base {
   body {
-    @apply bg-slate-50 text-slate-900 antialiased;
+    @apply bg-cream text-slate-900 antialiased font-serif;
   }
 }
 
+@layer components {
+  html.is-scrolled .site-header-inner {
+    @apply py-2;
+  }
+
+  html.is-scrolled .site-brand {
+    @apply text-sm;
+  }
+
+  html.is-scrolled .site-brand-logo {
+    @apply h-5 w-5;
+  }
+}

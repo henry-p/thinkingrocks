@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { formatDate } from "../lib/format";
+import { getAllPosts } from "../lib/posts";
+
+const posts = getAllPosts();
+---
+
+<BaseLayout title="Posts">
+  <div class="space-y-6">
+    <header class="space-y-1">
+      <h1 class="text-3xl font-bold tracking-tight">Posts</h1>
+      <p class="text-sm text-slate-600">{posts.length} total</p>
+    </header>
+
+    <ul class="divide-y divide-slate-200 rounded-lg border border-slate-900/10 bg-white/70">
+      {posts.map((post) => (
+        <li class="p-4">
+          <a href={post.url} class="block">
+            <div class="flex flex-col gap-1">
+              <span class="text-base font-medium text-slate-900 hover:underline">{post.title}</span>
+              <span class="text-sm text-slate-500">{formatDate(post.date)}</span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>
+
