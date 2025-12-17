@@ -7,6 +7,9 @@ export default {
     extend: {
       colors: {
         cream: "#FFF1E5",
+        "cream-strong": "#F3E3D3",
+        "cream-deep": "#E8D3C1",
+        "cream-pill": "#D7B89D",
       },
       fontFamily: {
         serif: ["Merriweather", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],

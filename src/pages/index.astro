@@ -6,36 +6,43 @@ import { POSTS_PER_PAGE } from "../lib/pagination";
 
 const allPosts = getAllPosts();
 const currentPage = 1;
-const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
+const totalPages = 1;
 const posts = allPosts.slice(0, POSTS_PER_PAGE);
+const displayPosts = Array.from({ length: 20 }, () => posts).flat();
 ---
 
 <BaseLayout title="Explore">
   <div class="space-y-6">
-    <header class="space-y-1">
-      <h1 class="text-3xl font-bold tracking-tight">Explore</h1>
-      <p class="text-sm text-slate-600">Latest posts</p>
+    <header class="space-y-2">
+      <h1 class="text-3xl font-bold tracking-tight text-slate-900">Latest posts</h1>
+      <p class="text-sm text-slate-600">Newest first.</p>
     </header>
 
-    <ul class="divide-y divide-slate-200 rounded-lg border border-slate-900/10 bg-white/70">
-      {posts.map((post) => (
-        <li class="p-4">
-          <a href={post.url} class="block">
-            <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-              <span class="text-base font-medium text-slate-900 hover:underline">{post.title}</span>
-              <span class="text-sm text-slate-500">{formatDate(post.date)}</span>
-            </div>
-          </a>
-        </li>
+    <div class="space-y-2">
+      {displayPosts.map((post) => (
+        <a
+          href={post.url}
+          class="group flex items-center justify-between gap-3 -mx-3 rounded-full px-4 py-3 transition duration-200 ease-out hover:bg-cream-pill"
+        >
+          <h2 class="text-base font-normal text-slate-900 transition-colors group-hover:text-white group-hover:font-semibold">
+            {post.title}
+          </h2>
+          <span class="whitespace-nowrap rounded-full bg-cream-pill px-3 py-1 text-xs font-medium text-slate-700 transition-colors group-hover:text-white group-hover:font-semibold">
+            {formatDate(post.date)}
+          </span>
+        </a>
       ))}
-    </ul>
+    </div>
 
     {totalPages > 1 && (
-      <nav class="flex items-center justify-between">
-        <span class="text-sm text-slate-500">
+      <nav class="flex items-center justify-between rounded-lg border border-slate-900/10 bg-white/70 px-4 py-3 text-sm text-slate-600">
+        <span>
           Page {currentPage} of {totalPages}
         </span>
-        <a href={`/page/${currentPage + 1}`} class="rounded-md border border-slate-200 bg-white px-3 py-1 text-sm hover:bg-slate-50">
+        <a
+          href={`/page/${currentPage + 1}`}
+          class="rounded-md border border-slate-200 bg-white px-3 py-1 font-medium text-slate-700 transition hover:-translate-y-[1px] hover:bg-slate-50 hover:shadow-sm"
+        >
           Next →
         </a>
       </nav>
