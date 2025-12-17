@@ -7,8 +7,35 @@ const AboutContent = About.Content as any;
 ---
 
 <BaseLayout title={title}>
-  <article class="prose prose-slate prose-sm sm:prose-base prose-headings:tracking-tight prose-p:my-3">
-    <h1>{title}</h1>
-    <AboutContent />
+  <article class="space-y-8">
+    <header class="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:gap-8">
+      <div class="relative h-28 w-28 shrink-0 overflow-hidden rounded-2xl bg-slate-200 ring-4 ring-white shadow-sm">
+        <div class="absolute inset-0 flex items-center justify-center text-sm font-semibold text-slate-500">Photo</div>
+      </div>
+      <div class="space-y-2">
+        <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">About</p>
+        <h1 class="text-3xl font-bold tracking-tight text-slate-900">{title}</h1>
+        <p class="text-sm text-slate-600 max-w-xl">
+          Digital Physics, Artificial Life, Open-Endedness, Evolutionary Algorithms.
+        </p>
+      </div>
+    </header>
+
+    <div class="prose prose-slate prose-sm sm:prose-base prose-headings:tracking-tight prose-p:my-3 prose-a:text-slate-900">
+      <AboutContent />
+    </div>
+
+    <section class="space-y-3 rounded-2xl border border-slate-900/10 bg-white/80 p-5 shadow-sm">
+      <h2 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-600">Selection of cyberspace traces</h2>
+      <div class="space-y-2">
+        <a
+          href="https://x.com/henryperschk"
+          class="group flex items-center justify-between rounded-xl border border-slate-900/10 bg-white px-4 py-3 text-sm font-medium text-slate-800 transition hover:-translate-y-[1px] hover:border-slate-900/20 hover:shadow-sm"
+        >
+          <span>Twitter / X</span>
+          <span aria-hidden="true" class="text-slate-500 transition group-hover:translate-x-0.5">→</span>
+        </a>
+      </div>
+    </section>
   </article>
 </BaseLayout>

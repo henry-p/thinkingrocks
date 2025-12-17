@@ -4,7 +4,7 @@ import { formatDate } from "../lib/format";
 import { getAllPosts } from "../lib/posts";
 
 const posts = getAllPosts();
-const displayPosts = Array.from({ length: 20 }, () => posts).flat();
+const displayPosts = posts;
 ---
 
 <BaseLayout title="Posts">

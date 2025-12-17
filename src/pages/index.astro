@@ -6,9 +6,9 @@ import { POSTS_PER_PAGE } from "../lib/pagination";
 
 const allPosts = getAllPosts();
 const currentPage = 1;
-const totalPages = 1;
+const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
 const posts = allPosts.slice(0, POSTS_PER_PAGE);
-const displayPosts = Array.from({ length: 20 }, () => posts).flat();
+const displayPosts = posts;
 ---
 
 <BaseLayout title="Explore">
