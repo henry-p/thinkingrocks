@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import * as About from "../../about.md";
+
+const title = typeof About.frontmatter?.title === "string" ? About.frontmatter.title : "About";
+const AboutContent = About.Content as any;
+---
+
+<BaseLayout title={title}>
+  <article class="prose prose-slate max-w-none">
+    <h1>{title}</h1>
+    <AboutContent />
+  </article>
+</BaseLayout>

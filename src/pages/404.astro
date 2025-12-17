@@ -1,0 +1,13 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import * as NotFound from "../../404.md";
+
+const title = typeof NotFound.frontmatter?.title === "string" ? NotFound.frontmatter.title : "404";
+const NotFoundContent = NotFound.Content as any;
+---
+
+<BaseLayout title={title}>
+  <div class="prose prose-slate max-w-none">
+    <NotFoundContent />
+  </div>
+</BaseLayout>

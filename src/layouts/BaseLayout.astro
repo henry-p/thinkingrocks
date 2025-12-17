@@ -1,0 +1,87 @@
+---
+import "../styles/global.css";
+import Sidebar from "../components/Sidebar.astro";
+import { SITE } from "../lib/site";
+
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const { title, description } = Astro.props;
+const pageTitle = title ? `${title} · ${SITE.title}` : SITE.title;
+const pageDescription = description ?? SITE.description;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{pageTitle}</title>
+    {pageDescription && <meta name="description" content={pageDescription} />}
+
+    <link rel="canonical" href={Astro.url} />
+    <link rel="icon" href="/favicon.png" />
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml" />
+
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["$", "$"], ["\\(", "\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+          macros: {
+            Q: "\\mathbb{Q}",
+            C: "\\mathbb{C}",
+          },
+        },
+      };
+    </script>
+    <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+
+  <body>
+    <a
+      href="#content"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:font-medium focus:shadow"
+    >
+      Skip to content
+    </a>
+
+    <div class="min-h-screen">
+      <header class="border-b border-slate-200 bg-white">
+        <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
+          <a href="/" class="flex items-center gap-2 text-base font-semibold tracking-tight">
+            <img src="/favicon.png" alt="" class="h-6 w-6" />
+            <span>{SITE.title}</span>
+          </a>
+
+          <nav class="flex items-center gap-4 text-sm text-slate-600">
+            <a href="/about" class="hover:text-slate-900 hover:underline">About</a>
+            <a href="/atom.xml" class="hover:text-slate-900 hover:underline">RSS</a>
+          </nav>
+        </div>
+      </header>
+
+      <div class="mx-auto max-w-6xl px-4 py-8 lg:flex lg:items-start lg:gap-10">
+        <main id="content" class="min-w-0 flex-1">
+          <slot />
+        </main>
+
+        <aside class="mt-12 w-full lg:mt-0 lg:w-80 lg:flex-none">
+          <div class="sticky top-8">
+            <Sidebar currentPathname={Astro.url.pathname} />
+          </div>
+        </aside>
+      </div>
+
+      <footer class="border-t border-slate-200 bg-white">
+        <div class="mx-auto max-w-6xl px-4 py-8 text-sm text-slate-500">
+          © {new Date().getFullYear()} {SITE.author}
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

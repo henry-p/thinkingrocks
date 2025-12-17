@@ -1,9 +1,8 @@
 ---
-layout: post
 title: Don't Play Whac-A-Mole
 ---
 
-<object data="{{ site.baseurl }}/assets/dont-play-whack-a-mole.pdf#toolbar=0"
+<object data="/assets/dont-play-whack-a-mole.pdf#toolbar=0"
         type="application/pdf" 
         width="100%" 
         style="height: 95vh; min-height: 500px; max-height: 596px;">

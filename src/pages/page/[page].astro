@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { formatDate } from "../../lib/format";
+import { getAllPosts } from "../../lib/posts";
+import { POSTS_PER_PAGE } from "../../lib/pagination";
+
+export function getStaticPaths() {
+  const totalPages = Math.ceil(getAllPosts().length / POSTS_PER_PAGE);
+  return Array.from({ length: Math.max(0, totalPages - 1) }, (_, index) => {
+    const page = String(index + 2);
+    return { params: { page } };
+  });
+}
+
+const allPosts = getAllPosts();
+const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
+
+const currentPage = Number(Astro.params.page);
+if (!Number.isFinite(currentPage) || currentPage < 2) {
+  throw new Error(`Invalid page: ${Astro.params.page}`);
+}
+
+const start = (currentPage - 1) * POSTS_PER_PAGE;
+const posts = allPosts.slice(start, start + POSTS_PER_PAGE);
+
+const previousPath = currentPage === 2 ? "/" : `/page/${currentPage - 1}`;
+const nextPath = currentPage < totalPages ? `/page/${currentPage + 1}` : null;
+---
+
+<BaseLayout title="Explore">
+  <div class="space-y-6">
+    <header class="space-y-1">
+      <h1 class="text-3xl font-bold tracking-tight">Explore</h1>
+      <p class="text-sm text-slate-600">
+        Page {currentPage} of {totalPages}
+      </p>
+    </header>
+
+    <ul class="divide-y divide-slate-200 rounded-lg border border-slate-200 bg-white">
+      {posts.map((post) => (
+        <li class="p-4">
+          <a href={post.url} class="block">
+            <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+              <span class="text-base font-medium text-slate-900 hover:underline">{post.title}</span>
+              <span class="text-sm text-slate-500">{formatDate(post.date)}</span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <nav class="flex items-center justify-between">
+      <a href={previousPath} class="rounded-md border border-slate-200 bg-white px-3 py-1 text-sm hover:bg-slate-50">
+        ← Previous
+      </a>
+      {nextPath ? (
+        <a href={nextPath} class="rounded-md border border-slate-200 bg-white px-3 py-1 text-sm hover:bg-slate-50">
+          Next →
+        </a>
+      ) : (
+        <span class="text-sm text-slate-400">End</span>
+      )}
+    </nav>
+  </div>
+</BaseLayout>
