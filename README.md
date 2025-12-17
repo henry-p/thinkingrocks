@@ -5,7 +5,8 @@ This blog is built with [Astro](https://astro.build), styled with [Tailwind CSS]
 ## Content
 
 - Posts: `_posts/*.md`
-- Pages: `about.md`, `404.md`
+- Pages: `src/pages/about.astro`, `src/pages/404.astro`
+- The root path (`/`) redirects to the posts index at `/posts`
 - Static assets: `public/` (e.g. `public/assets`, `public/favicon.png`)
 
 ## Local development

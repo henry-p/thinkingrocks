@@ -1,13 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import * as NotFound from "../../404.md";
 
-const title = typeof NotFound.frontmatter?.title === "string" ? NotFound.frontmatter.title : "404";
-const NotFoundContent = NotFound.Content as any;
+const title = "404: Page not found";
 ---
 
 <BaseLayout title={title}>
   <div class="prose prose-slate prose-sm sm:prose-base prose-headings:tracking-tight prose-p:my-3">
-    <NotFoundContent />
+    <h1>{title}</h1>
+    <p>
+      Sorry, we've misplaced that URL or it's pointing to something that doesn't exist.
+      <a href="/">Head back home</a> to try finding it again.
+    </p>
   </div>
 </BaseLayout>

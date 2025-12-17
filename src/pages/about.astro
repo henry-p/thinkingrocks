@@ -1,9 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import * as About from "../../about.md";
 
-const title = typeof About.frontmatter?.title === "string" ? About.frontmatter.title : "About";
-const AboutContent = About.Content as any;
+const title = "Henry Perschk";
 ---
 
 <BaseLayout title={title}>
@@ -22,7 +20,10 @@ const AboutContent = About.Content as any;
     </header>
 
     <div class="prose prose-slate prose-sm sm:prose-base prose-headings:tracking-tight prose-p:my-3 prose-a:text-slate-900">
-      <AboutContent />
+      <p>
+        I write and build around digital physics, artificial life, and open-ended systems—sharing notes as I go and
+        keeping the stack simple enough to stay fast.
+      </p>
     </div>
 
     <section class="space-y-3 rounded-2xl border border-slate-900/10 bg-white/80 p-5 shadow-sm">

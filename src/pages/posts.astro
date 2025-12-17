@@ -20,12 +20,12 @@ const displayPosts = posts;
       {displayPosts.map((post) => (
         <a
           href={post.url}
-          class="group flex items-center justify-between gap-3 -mx-3 rounded-full px-4 py-3 transition duration-200 ease-out hover:bg-cream-pill"
+          class="group flex items-center justify-between gap-3 -mx-3 rounded-full px-4 py-3 hover:bg-cream-pill"
         >
-          <h2 class="text-base font-normal text-slate-900 transition-colors group-hover:text-white group-hover:font-semibold">
+          <h2 class="text-base font-normal text-slate-900 group-hover:text-white group-hover:font-semibold">
             {post.title}
           </h2>
-          <span class="whitespace-nowrap rounded-full bg-cream-pill px-3 py-1 text-xs font-medium text-slate-700 transition-colors group-hover:text-white group-hover:font-semibold">
+          <span class="whitespace-nowrap rounded-full bg-cream-pill px-3 py-1 text-xs font-medium text-slate-700 group-hover:text-white group-hover:font-semibold">
             {formatDate(post.date)}
           </span>
         </a>
