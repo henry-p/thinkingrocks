@@ -8,6 +8,7 @@ export const SITE = {
   profileImage: "/assets/profile.jpeg",
   socialImage: "/assets/thinking_rocks_banner.jpeg",
   socialImageVersion: "20260106",
+  postXPlatformCard: "summary_large_image",
   xPlatformHandle: X_PLATFORM_HANDLE,
   xPlatformUrl: `https://x.com/${X_PLATFORM_HANDLE.replace(/^@/, "")}`,
 } as const;

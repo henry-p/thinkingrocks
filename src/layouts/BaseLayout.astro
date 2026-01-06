@@ -9,7 +9,7 @@ type Props = {
   image?: string;
   imageAlt?: string;
   type?: "website" | "article";
-  twitterCard?: "summary" | "summary_large_image";
+  xPlatformCard?: "summary" | "summary_large_image";
 };
 
 const {
@@ -18,7 +18,7 @@ const {
   image,
   imageAlt,
   type = "website",
-  twitterCard = "summary_large_image",
+  xPlatformCard = "summary_large_image",
 } = Astro.props;
 const pageTitle = title ? `${title} · ${SITE.title}` : SITE.title;
 const pageDescription = description?.trim() || SITE.description || SITE.title;
@@ -70,7 +70,7 @@ const hasOpenpanel = Boolean(openpanelApiUrl && OPENPANEL.clientId);
     <meta property="og:image:alt" content={imageDescription} />
 
     <!-- X/Twitter -->
-    <meta name="twitter:card" content={twitterCard} />
+    <meta name="twitter:card" content={xPlatformCard} />
     <meta name="twitter:site" content={SITE.xPlatformHandle} />
     <meta property="twitter:domain" content={siteUrl.hostname} />
     <meta property="twitter:url" content={canonicalUrl.toString()} />
