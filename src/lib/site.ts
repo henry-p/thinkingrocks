@@ -7,6 +7,7 @@ export const SITE = {
   url: "https://thinking.rocks",
   profileImage: "/assets/profile.jpeg",
   socialImage: "/assets/thinking_rocks_banner.jpeg",
+  socialImageVersion: "20260106",
   xPlatformHandle: X_PLATFORM_HANDLE,
   xPlatformUrl: `https://x.com/${X_PLATFORM_HANDLE.replace(/^@/, "")}`,
 } as const;

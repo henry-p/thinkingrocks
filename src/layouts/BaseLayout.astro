@@ -26,7 +26,12 @@ const siteUrl = Astro.site ?? new URL(SITE.url);
 const canonicalUrl = import.meta.env.DEV
   ? new URL(`${Astro.url.pathname}${Astro.url.search}`, siteUrl)
   : Astro.url;
-const imageUrl = new URL(image ?? SITE.socialImage ?? SITE.profileImage, siteUrl).href;
+const imageBase = image ?? SITE.socialImage ?? SITE.profileImage;
+const useSocialImage = !image && imageBase === SITE.socialImage && SITE.socialImageVersion;
+const imageUrl = new URL(
+  useSocialImage ? `${SITE.socialImage}?v=${SITE.socialImageVersion}` : imageBase,
+  siteUrl
+).href;
 const imageDescription = imageAlt ?? pageTitle;
 const openpanelApiUrl = OPENPANEL.apiUrl ? OPENPANEL.apiUrl.replace(/\/+$/, "") : "";
 const openpanelCdnUrl = OPENPANEL.cdnUrl ? OPENPANEL.cdnUrl.replace(/\/+$/, "") : "";
