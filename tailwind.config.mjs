@@ -14,6 +14,8 @@ export default {
       },
       fontFamily: {
         serif: ["Spectral", "Merriweather", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
+        spectral: ["Spectral", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
+        merriweather: ["Merriweather", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
       },
     },
   },

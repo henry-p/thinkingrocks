@@ -4,12 +4,23 @@
 
 @layer base {
   body {
-    @apply bg-cream text-[19px] leading-[1.6] text-slate-900 antialiased font-serif dark:bg-slate-950 dark:text-slate-100;
+    @apply bg-cream text-[19px] leading-[1.6] text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100;
+    font-family: "Spectral", "Merriweather", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   @media (max-width: 640px) {
     body {
       @apply text-[17px] leading-[1.6];
+      font-weight: 500;
+    }
+  }
+
+  @media (min-width: 640px) {
+    body {
+      font-weight: 500;
     }
   }
 }
@@ -25,5 +36,59 @@
 
   html.is-scrolled .site-brand-logo {
     @apply h-5 w-5;
+  }
+
+  .site-header {
+    font-family: "Merriweather", "Spectral", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+
+  .post-header {
+    font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .post-list-item:hover {
+      @apply bg-cream-pill dark:bg-slate-800;
+    }
+
+    .post-list-item:hover .post-list-title,
+    .post-list-item:hover .post-list-date {
+      @apply text-white font-medium;
+    }
+
+    .post-list-item:hover .post-list-date {
+      @apply bg-cream-pill dark:bg-slate-800;
+    }
+  }
+
+  .post-list-item.is-touching,
+  .post-list-item:active,
+  .post-list-item:focus,
+  .post-list-item:focus-visible {
+    @apply bg-cream-pill dark:bg-slate-800;
+  }
+
+  .post-list-item.is-touching .post-list-title,
+  .post-list-item.is-touching .post-list-date,
+  .post-list-item:active .post-list-title,
+  .post-list-item:active .post-list-date,
+  .post-list-item:focus .post-list-title,
+  .post-list-item:focus .post-list-date,
+  .post-list-item:focus-visible .post-list-title,
+  .post-list-item:focus-visible .post-list-date {
+    @apply text-white font-medium;
+  }
+
+  .post-list-item.is-touching .post-list-date,
+  .post-list-item:active .post-list-date,
+  .post-list-item:focus .post-list-date,
+  .post-list-item:focus-visible .post-list-date {
+    @apply bg-cream-pill dark:bg-slate-800;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    .post-list-item {
+      -webkit-tap-highlight-color: rgba(215, 184, 157, 0.6);
+    }
   }
 }

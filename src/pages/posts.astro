@@ -8,7 +8,7 @@ const displayPosts = posts;
 ---
 
 <BaseLayout title="Posts">
-  <div class="space-y-6">
+  <div class="space-y-6 post-header">
     <header class="space-y-2">
       <h1 class="text-[32px] font-bold leading-[36px] tracking-tight text-slate-900 dark:text-slate-100">All posts</h1>
       <p class="text-sm text-slate-600 dark:text-slate-400">
@@ -20,12 +20,12 @@ const displayPosts = posts;
       {displayPosts.map((post) => (
         <a
           href={post.url}
-          class="group flex items-center justify-between gap-3 -mx-3 rounded-full px-4 py-3 hover:bg-cream-pill dark:hover:bg-slate-800"
+          class="post-list-item group flex items-center justify-between gap-3 -mx-3 rounded-full px-4 py-3"
         >
-          <h2 class="text-base font-normal text-slate-900 group-hover:text-white group-hover:font-semibold dark:text-slate-100 dark:group-hover:text-white">
+          <h2 class="post-list-title text-base font-normal text-slate-900 dark:text-slate-100">
             {post.title}
           </h2>
-          <span class="whitespace-nowrap rounded-full bg-cream-pill px-3 py-1 text-xs font-medium text-slate-700 group-hover:bg-cream-pill group-hover:text-white group-hover:font-semibold dark:bg-slate-800 dark:text-slate-300 dark:group-hover:bg-slate-800 dark:group-hover:text-white">
+          <span class="post-list-date whitespace-nowrap rounded-full bg-cream-pill px-3 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-300">
             {formatDate(post.date)}
           </span>
         </a>
@@ -33,3 +33,42 @@ const displayPosts = posts;
     </div>
   </div>
 </BaseLayout>
+
+<script is:inline>
+  (() => {
+    const items = document.querySelectorAll(".post-list-item");
+    if (!items.length) return;
+
+    const clearAll = () => {
+      items.forEach((item) => item.classList.remove("is-touching"));
+    };
+
+    items.forEach((item) => {
+      item.addEventListener(
+        "pointerdown",
+        (event) => {
+          if (event.pointerType !== "touch") return;
+          clearAll();
+          item.classList.add("is-touching");
+        },
+        { passive: true }
+      );
+      item.addEventListener(
+        "pointerup",
+        (event) => {
+          if (event.pointerType !== "touch") return;
+          clearAll();
+        },
+        { passive: true }
+      );
+      item.addEventListener(
+        "pointercancel",
+        (event) => {
+          if (event.pointerType !== "touch") return;
+          clearAll();
+        },
+        { passive: true }
+      );
+    });
+  })();
+</script>

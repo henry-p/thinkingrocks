@@ -20,7 +20,7 @@ const subtitle = typeof post.module.frontmatter?.subtitle === "string" ? post.mo
 
 <BaseLayout title={post.title}>
   <article class="space-y-6">
-    <header class="space-y-3 font-sans">
+    <header class="post-header space-y-3">
       <h1 class="text-[32px] font-bold leading-[36px] tracking-normal text-slate-900 dark:text-slate-100">{post.title}</h1>
       {subtitle && <h2 class="text-[18px] leading-[24px] text-slate-600 dark:text-slate-300">{subtitle}</h2>}
       <div class="flex items-center gap-3 text-sm text-slate-500 dark:text-slate-400">
