@@ -1,12 +1,14 @@
 ---
 title: Don't Play Whac-A-Mole
+subtitle: A simple system for fixing the biggest problem first
 ---
 
-<object data="/assets/dont-play-whack-a-mole.pdf#toolbar=0"
-        type="application/pdf" 
-        width="100%" 
-        style="height: 95vh; min-height: 500px; max-height: 596px;">
-</object>
+<div style="width: 100%; aspect-ratio: 606.675 / 907.111; margin-bottom: 1rem;">
+  <object data="/assets/dont-play-whack-a-mole.pdf#toolbar=0&view=Fit"
+          type="application/pdf"
+          style="width: 100%; height: 100%; display: block;">
+  </object>
+</div>
 
 In the busy world of starting a new business, lots of problems can pop up at the same time. Each problem needs attention and work to fix it. But if we try to fix all the problems at once, we might not do a very good job. It's like when you try to juggle too many balls in the air, and they all end up falling down. Instead, it's often better to focus on fixing one problem completely before moving on to the next.
 

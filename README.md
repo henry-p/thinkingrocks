@@ -9,6 +9,17 @@ This blog is built with [Astro](https://astro.build), styled with [Tailwind CSS]
 - The root path (`/`) redirects to the posts index at `/posts`
 - Static assets: `public/` (e.g. `public/assets`, `public/favicon.png`)
 
+## PDF embeds
+
+For native PDF embeds that fit the first page, compute the PDF's page aspect ratio
+and wrap the `<object>` in a container using that ratio.
+
+```bash
+scripts/pdf-aspect.sh path/to/file.pdf
+```
+
+Paste the generated `<div>/<object>` snippet into the post Markdown.
+
 ## Local development
 
 ```bash
