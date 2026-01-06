@@ -16,9 +16,27 @@ if (!post) throw new Error(`Post not found: ${slug}`);
 
 const PostContent = post.module.Content as any;
 const subtitle = typeof post.module.frontmatter?.subtitle === "string" ? post.module.frontmatter.subtitle : undefined;
+const primaryImage =
+  typeof post.module.frontmatter?.image === "string"
+    ? post.module.frontmatter.image
+    : SITE.profileImage;
+const primaryImageAlt =
+  typeof post.module.frontmatter?.imageAlt === "string"
+    ? post.module.frontmatter.imageAlt
+    : primaryImage === SITE.profileImage
+      ? SITE.author
+      : post.title;
+const description = subtitle ?? SITE.description ?? post.title;
 ---
 
-<BaseLayout title={post.title}>
+<BaseLayout
+  title={post.title}
+  description={description}
+  type="article"
+  image={primaryImage}
+  imageAlt={primaryImageAlt}
+  twitterCard="summary"
+>
   <article class="space-y-6">
     <header class="post-header space-y-3">
       <h1 class="text-[32px] font-bold leading-[36px] tracking-normal text-slate-900 dark:text-slate-100">{post.title}</h1>

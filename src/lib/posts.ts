@@ -59,4 +59,3 @@ export function getAllPosts(): BlogPost[] {
 export function getPostBySlug(slug: string): BlogPost | undefined {
   return getAllPosts().find((post) => post.slug === slug);
 }
-

@@ -4,9 +4,6 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: process.env.SITE ?? "https://thinking.rocks",
   base: process.env.BASE_PATH ?? "/",
-  redirects: {
-    "/": "/posts",
-  },
   vite: {
     server: {
       allowedHosts: [".ngrok-free.app"],

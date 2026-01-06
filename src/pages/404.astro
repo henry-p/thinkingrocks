@@ -2,9 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const title = "404: Page not found";
+const description = "The page you requested could not be found.";
 ---
 
-<BaseLayout title={title}>
+<BaseLayout title={title} description={description}>
   <div class="prose prose-slate prose-headings:tracking-tight prose-p:mt-0 prose-p:mb-5 prose-p:leading-[1.6] dark:prose-invert dark:prose-a:text-slate-100">
     <h1>{title}</h1>
     <p>

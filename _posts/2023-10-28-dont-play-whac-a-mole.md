@@ -1,10 +1,12 @@
 ---
 title: Don't Play Whac-A-Mole
 subtitle: A simple system for fixing the biggest problem first
+image: /assets/posts/2023-10-28-dont-play-whac-a-mole/post_art_fallback.jpg
+imageAlt: Abstract geometric form with colorful stacked faces on a dark background
 ---
 
 <div style="width: 100%; aspect-ratio: 606.675 / 907.111; margin-bottom: 1rem;">
-  <object data="/assets/dont-play-whack-a-mole.pdf#toolbar=0&view=Fit"
+  <object data="/assets/posts/2023-10-28-dont-play-whac-a-mole/dont-play-whack-a-mole.pdf#toolbar=0&view=Fit"
           type="application/pdf"
           style="width: 100%; height: 100%; display: block;">
   </object>

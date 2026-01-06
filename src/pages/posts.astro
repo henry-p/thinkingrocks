@@ -1,37 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { formatDate } from "../lib/format";
-import { getAllPosts } from "../lib/posts";
-
-const posts = getAllPosts();
-const displayPosts = posts;
+import PostsList from "../components/PostsList.astro";
 ---
 
-<BaseLayout title="Posts">
-  <div class="space-y-6 post-header">
-    <header class="space-y-2">
-      <h1 class="text-[32px] font-bold leading-[36px] tracking-tight text-slate-900 dark:text-slate-100">All posts</h1>
-      <p class="text-sm text-slate-600 dark:text-slate-400">
-        {displayPosts.length} {displayPosts.length === 1 ? "entry" : "entries"}
-      </p>
-    </header>
-
-    <div class="space-y-2">
-      {displayPosts.map((post) => (
-        <a
-          href={post.url}
-          class="post-list-item group flex items-center justify-between gap-3 -mx-3 rounded-full px-4 py-3"
-        >
-          <h2 class="post-list-title text-base font-normal text-slate-900 dark:text-slate-100">
-            {post.title}
-          </h2>
-          <span class="post-list-date whitespace-nowrap rounded-full bg-cream-pill px-3 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-300">
-            {formatDate(post.date)}
-          </span>
-        </a>
-      ))}
-    </div>
-  </div>
+<BaseLayout title="Posts" description="All posts and notes from Thinking Rocks.">
+  <PostsList />
 </BaseLayout>
 
 <script is:inline>

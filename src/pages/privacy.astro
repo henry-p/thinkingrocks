@@ -2,9 +2,11 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const title = "Privacy";
+const description =
+  "We use OpenPanel for basic page view analytics. It is cookie-free and does not identify users.";
 ---
 
-<BaseLayout title={title}>
+<BaseLayout title={title} description={description}>
   <article class="space-y-6 text-sm text-slate-700 dark:text-slate-200">
     <header class="space-y-2">
       <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">{title}</h1>
