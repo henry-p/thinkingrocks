@@ -19,11 +19,11 @@ const PostContent = post.module.Content as any;
 <BaseLayout title={post.title}>
   <article class="space-y-6">
     <header class="space-y-1">
-      <h1 class="text-3xl font-bold tracking-tight">{post.title}</h1>
-      <p class="text-sm text-slate-500">{formatDate(post.date)}</p>
+      <h1 class="text-[32px] font-bold leading-[36px] tracking-tight text-slate-900 dark:text-slate-100 sm:text-3xl sm:leading-tight">{post.title}</h1>
+      <p class="text-sm text-slate-500 dark:text-slate-400">{formatDate(post.date)}</p>
     </header>
 
-    <div class="prose prose-slate prose-sm sm:prose-base prose-headings:tracking-tight prose-p:my-3 prose-pre:rounded-lg prose-pre:bg-slate-900 prose-pre:text-slate-50">
+    <div class="prose prose-slate prose-sm sm:prose-base prose-headings:tracking-tight prose-p:mt-0 prose-p:mb-5 sm:prose-p:my-3 prose-pre:rounded-lg prose-pre:bg-slate-900 prose-pre:text-slate-50 dark:prose-invert dark:prose-a:text-slate-100 dark:prose-pre:bg-slate-800">
       <PostContent />
     </div>
   </article>

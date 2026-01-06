@@ -20,10 +20,7 @@ const pageDescription = description ?? SITE.description;
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@300;400;700&display=swap" rel="stylesheet" />
 
     <title>{pageTitle}</title>
     {pageDescription && <meta name="description" content={pageDescription} />}
@@ -51,40 +48,40 @@ const pageDescription = description ?? SITE.description;
   <body>
     <a
       href="#content"
-      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:font-medium focus:shadow"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:font-medium focus:shadow dark:focus:bg-slate-900"
     >
       Skip to content
     </a>
 
-    <div class="pointer-events-none fixed inset-x-0 top-0 z-0 h-80 bg-gradient-to-b from-white to-cream"></div>
+    <div class="pointer-events-none fixed inset-x-0 top-0 z-0 h-80 bg-gradient-to-b from-white to-cream dark:from-[#162033] dark:to-slate-950"></div>
 
     <div class="relative z-10 min-h-screen flex flex-col">
       <header
-        class="site-header sticky top-0 z-40 border-b border-slate-900/10 bg-white/85 shadow-sm backdrop-blur transition-all duration-300 ease-out motion-reduce:transition-none"
+        class="site-header sticky top-0 z-40 border-b border-slate-900/10 bg-white/85 shadow-sm backdrop-blur transition-all duration-300 ease-out motion-reduce:transition-none dark:border-white/10 dark:bg-slate-950/80"
       >
         <div
-          class="site-header-inner mx-auto flex max-w-[34rem] items-center justify-between gap-4 px-4 py-4 transition-all duration-300 ease-out motion-reduce:transition-none"
-        >
+        class="site-header-inner mx-auto flex max-w-[34rem] items-center justify-between gap-4 px-2 py-4 transition-all duration-300 ease-out motion-reduce:transition-none sm:px-4"
+      >
           <a href="/" class="site-brand flex items-center gap-2 text-base font-semibold tracking-tight transition-all duration-300 ease-out">
             <img src="/favicon.png" alt="" class="site-brand-logo h-6 w-6 transition-all duration-300 ease-out" />
             <span>{SITE.title}</span>
           </a>
 
-          <nav class="flex items-center gap-4 text-sm text-slate-600">
-            <a href="/posts" class="hover:text-slate-900 hover:underline">Posts</a>
-            <a href="/about" class="hover:text-slate-900 hover:underline">About</a>
+          <nav class="flex items-center gap-4 text-sm text-slate-600 dark:text-slate-300">
+            <a href="/posts" class="hover:text-slate-900 hover:underline dark:hover:text-slate-100">Posts</a>
+            <a href="/about" class="hover:text-slate-900 hover:underline dark:hover:text-slate-100">About</a>
           </nav>
         </div>
       </header>
 
-      <div class="mx-auto w-full max-w-[34rem] flex-1 px-4 py-8">
+      <div class="mx-auto w-full max-w-[22rem] flex-1 px-1 py-8 sm:max-w-[34rem] sm:px-4">
         <main id="content" class="min-w-0 w-full">
           <slot />
         </main>
       </div>
 
       <footer class="mt-auto">
-        <div class="mx-auto w-full px-4 py-10 text-center text-sm text-slate-400">
+        <div class="mx-auto w-full px-3 py-10 text-center text-sm text-slate-400 dark:text-slate-500 sm:px-4">
           © {new Date().getFullYear()} {SITE.author}
         </div>
       </footer>

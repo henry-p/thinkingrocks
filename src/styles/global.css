@@ -4,7 +4,13 @@
 
 @layer base {
   body {
-    @apply bg-cream text-slate-900 antialiased font-serif;
+    @apply bg-cream text-slate-900 antialiased font-serif dark:bg-slate-950 dark:text-slate-100;
+  }
+
+  @media (max-width: 640px) {
+    body {
+      @apply text-[17px] leading-[1.6];
+    }
   }
 }
 

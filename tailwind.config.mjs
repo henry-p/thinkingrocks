@@ -3,6 +3,7 @@ import typography from "@tailwindcss/typography";
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}"],
+  darkMode: "media",
   theme: {
     extend: {
       colors: {
@@ -12,7 +13,7 @@ export default {
         "cream-pill": "#D7B89D",
       },
       fontFamily: {
-        serif: ["Merriweather", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
+        serif: ["Spectral", "Merriweather", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
       },
     },
   },

@@ -7,6 +7,11 @@ export default defineConfig({
   redirects: {
     "/": "/posts",
   },
+  vite: {
+    server: {
+      allowedHosts: [".ngrok-free.app"],
+    },
+  },
   build: {
     // Keep the current output style (e.g. /about.html, /b/post.html)
     format: "file",
