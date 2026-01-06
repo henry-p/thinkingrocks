@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Privacy";
+---
+
+<BaseLayout title={title}>
+  <article class="space-y-6 text-sm text-slate-700 dark:text-slate-200">
+    <header class="space-y-2">
+      <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">{title}</h1>
+    </header>
+
+    <section class="space-y-3">
+      <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Analytics</h2>
+      <p>
+        We use OpenPanel for basic page view analytics. It is configured to be cookie-free and does not
+        identify individual users. No cookies or browser storage are used for analytics. Data retention is
+        90 days. The server is located in Germany.
+      </p>
+    </section>
+  </article>
+</BaseLayout>

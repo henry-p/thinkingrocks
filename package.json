@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "^6.0.0",
+    "@openpanel/astro": "^1.0.6",
     "astro": "^5.0.0"
   },
   "devDependencies": {
