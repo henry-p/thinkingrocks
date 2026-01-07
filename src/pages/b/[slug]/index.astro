@@ -1,0 +1,39 @@
+---
+import { getAllPosts } from "../../../lib/posts";
+import CanonicalRedirect from "../../../components/CanonicalRedirect.astro";
+import { SITE } from "../../../lib/site";
+
+export function getStaticPaths() {
+  return getAllPosts().map((post) => ({ params: { slug: post.slug } }));
+}
+
+const slug = Astro.params.slug;
+if (!slug) throw new Error("Missing slug param");
+
+const post = getAllPosts().find((entry) => entry.slug === slug);
+if (!post) throw new Error(`Post not found: ${slug}`);
+
+const target = `/b/${slug}`;
+const subtitle = typeof post.module.frontmatter?.subtitle === "string" ? post.module.frontmatter.subtitle : undefined;
+const primaryImage =
+  typeof post.module.frontmatter?.image === "string"
+    ? post.module.frontmatter.image
+    : SITE.profileImage;
+const primaryImageAlt =
+  typeof post.module.frontmatter?.imageAlt === "string"
+    ? post.module.frontmatter.imageAlt
+    : primaryImage === SITE.profileImage
+      ? SITE.author
+      : post.title;
+const description = subtitle ?? SITE.description ?? post.title;
+---
+
+<CanonicalRedirect
+  target={target}
+  title={post.title}
+  description={description}
+  image={primaryImage}
+  imageAlt={primaryImageAlt}
+  type="article"
+  xPlatformCard={SITE.postXPlatformCard}
+/>

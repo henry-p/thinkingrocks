@@ -1,9 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { PAGE_META } from "../lib/site";
 
-const title = "Privacy";
-const description =
-  "We use OpenPanel for basic page view analytics. It is cookie-free and does not identify users.";
+const { title, description } = PAGE_META.privacy;
 ---
 
 <BaseLayout title={title} description={description}>

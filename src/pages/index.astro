@@ -1,8 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PostsList from "../components/PostsList.astro";
+import { PAGE_META } from "../lib/site";
 ---
 
-<BaseLayout title="Posts" description="All posts and notes from Thinking Rocks.">
+<BaseLayout title={PAGE_META.posts.title} description={PAGE_META.posts.description}>
   <PostsList />
 </BaseLayout>

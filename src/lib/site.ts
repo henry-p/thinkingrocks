@@ -25,6 +25,22 @@ export const SITE = {
   xPlatformUrl: `https://x.com/${X_PLATFORM_HANDLE.replace(/^@/, "")}`,
 } as const;
 
+export const PAGE_META = {
+  about: {
+    title: "Henry Perschk",
+    description: "AI, Digital Physics, Artificial Life, Open-Endedness, Evolutionary Algorithms.",
+  },
+  posts: {
+    title: "Posts",
+    description: "All posts and notes from Thinking Rocks.",
+  },
+  privacy: {
+    title: "Privacy",
+    description:
+      "We use OpenPanel for basic page view analytics. It is cookie-free and does not identify users.",
+  },
+} as const;
+
 export const OPENPANEL = {
   apiUrl: "https://api.openpanel.analytics.vibeps.zereal.ai",
   clientId: "ee88d6ce-bcd9-41a4-8bea-b8521593a356",

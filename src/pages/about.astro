@@ -1,9 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { SITE } from "../lib/site";
+import { PAGE_META, SITE } from "../lib/site";
 
-const title = "Henry Perschk";
-const description = "AI, Digital Physics, Artificial Life, Open-Endedness, Evolutionary Algorithms.";
+const { title, description } = PAGE_META.about;
 ---
 
 <BaseLayout title={title} description={description}>
