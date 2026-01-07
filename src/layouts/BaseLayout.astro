@@ -141,8 +141,12 @@ const hasOpenpanel = Boolean(openpanelApiUrl && OPENPANEL.clientId);
 
       <footer class="mt-auto">
         <div class="mx-auto w-full px-3 py-10 text-center text-sm text-slate-400 dark:text-slate-500 sm:px-4">
-          © {new Date().getFullYear()} {SITE.author} |{" "}
-          <a href="/privacy" class="underline underline-offset-4 hover:text-slate-600 dark:hover:text-slate-300">
+          © {new Date().getFullYear()}{" "}
+          <a href="/about" class="text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300">
+            {SITE.author}
+          </a>{" "}
+          |{" "}
+          <a href="/privacy" class="hover:text-slate-600 dark:hover:text-slate-300">
             Privacy
           </a>
         </div>
