@@ -1,13 +1,25 @@
+import fs from "node:fs";
+
 const X_PLATFORM_HANDLE = "@henryperschk";
+const SOCIAL_IMAGE_PATH = "/assets/banner.jpg";
+const socialImageVersion = (() => {
+  try {
+    const fileUrl = new URL(`../../public${SOCIAL_IMAGE_PATH}`, import.meta.url);
+    const stat = fs.statSync(fileUrl);
+    return String(Math.floor(stat.mtimeMs));
+  } catch {
+    return undefined;
+  }
+})();
 
 export const SITE = {
   title: "Thinking Rocks",
   description: "",
   author: "Henry Perschk",
   url: "https://thinking.rocks",
-  profileImage: "/assets/profile.jpeg",
-  socialImage: "/assets/thinking_rocks_banner.jpeg",
-  socialImageVersion: "20260106",
+  profileImage: "/assets/profile.jpg",
+  socialImage: SOCIAL_IMAGE_PATH,
+  socialImageVersion,
   postXPlatformCard: "summary_large_image",
   xPlatformHandle: X_PLATFORM_HANDLE,
   xPlatformUrl: `https://x.com/${X_PLATFORM_HANDLE.replace(/^@/, "")}`,
