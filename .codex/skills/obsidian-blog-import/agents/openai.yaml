@@ -1,0 +1,4 @@
+interface:
+  display_name: "Obsidian Blog Import"
+  short_description: "Import Obsidian notes as blog posts."
+  default_prompt: "Use $obsidian-blog-import to import this Obsidian note into the Thinking Rocks blog:"
